@@ -3,33 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Minha Aventura — PC Alura</title>
+  <title>A Jornada do Pixel Perdido — PC Alura</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Tela de capa / splash -->
-  <main id="cover" class="cover">
-    <div class="cover__card">
-      <h1 class="cover__title">A Jornada do Pixel Perdido</h1>
+  <main id="cover" class="cover" role="main" aria-label="Tela de abertura">
+    <div class="cover__card" role="region" aria-labelledby="coverTitle">
+      <div class="cover__media">
+        <!-- Substitua assets/cover.png por uma imagem no repositório -->
+        <img src="assets/cover.png" alt="Ilustração da jornada" class="cover__image" />
+      </div>
+
+      <h1 id="coverTitle" class="cover__title">A Jornada do Pixel Perdido</h1>
       <p class="cover__subtitle">Uma aventura interativa cheia de escolhas e surpresas.</p>
-      <button id="startBtn" class="btn btn--primary" aria-label="Iniciar aventura">
-        Iniciar
-      </button>
+
+      <div class="cover__actions">
+        <button id="startBtn" class="btn btn--primary" aria-label="Iniciar aventura">
+          Iniciar
+        </button>
+      </div>
     </div>
   </main>
+
+  <!-- Mensagens de interface (toast) -->
+  <div id="toast" class="toast" aria-live="polite" role="status" hidden></div>
 
   <!-- Conteúdo da história (invisível até clicar em Iniciar) -->
   <section id="game" class="game hidden" tabindex="-1" aria-hidden="true">
     <header class="game__header">
-      <h2>Capítulo 1 — O Despertar</h2>
+      <h2 id="chapterTitle">Capítulo 1 — O Despertar</h2>
     </header>
 
     <article class="game__content">
-      <p>
+      <p id="gameText">
         Bem-vindo(a)! A aventura começa agora. Use os botões e escolhas para prosseguir.
       </p>
-      <!-- Exemplo de botão para avançar (substitua pelo seu conteúdo real) -->
-      <button id="nextBtn" class="btn">Próximo</button>
+
+      <div class="game__controls">
+        <button id="nextBtn" class="btn" aria-label="Próximo trecho" disabled>Próximo</button>
+      </div>
     </article>
   </section>
 
