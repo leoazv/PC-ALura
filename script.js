@@ -1,11 +1,23 @@
-const avanca = document.querySelectorAll('.btn-proximo');
+document.addEventListener('DOMContentLoaded', () => {
+  const startBtn = document.getElementById('startBtn');
+  const cover = document.getElementById('cover');
+  const game = document.getElementById('game');
+  const nextBtn = document.getElementById('nextBtn');
 
-avanca.forEach(button => {
-    button.addEventListener('click', function(){
-        const atual = document.querySelector('.ativo');
-        const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
+  startBtn.addEventListener('click', () => {
+    // Esconde a capa e mostra o jogo
+    cover.classList.add('hidden');
+    game.classList.remove('hidden');
+    game.focus();
+    game.setAttribute('aria-hidden', 'false');
+    // Aqui você pode inicializar variáveis do jogo, carregar capítulos, etc.
+    console.log('Aventura iniciada — boa sorte!');
+  });
 
-        atual.classList.remove('ativo');
-        document.getElementById(proximoPasso).classList.add('ativo');
-    })
-})
+  // Exemplo simples de interação dentro do jogo
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      alert('Esse botão levaria ao próximo trecho da história. Substitua pelo seu fluxo de jogo.');
+    });
+  }
+});
